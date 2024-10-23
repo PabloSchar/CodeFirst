@@ -5,7 +5,7 @@
 namespace Modelo2.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -68,11 +68,11 @@ namespace Modelo2.Migrations
                 columns: table => new
                 {
                     DrogueriasDrogueriaId = table.Column<int>(type: "int", nullable: false),
-                    MedicamentosMedicamentoId = table.Column<int>(type: "int", nullable: false)
+                    MedicamentoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DrogueriaMedicamento", x => new { x.DrogueriasDrogueriaId, x.MedicamentosMedicamentoId });
+                    table.PrimaryKey("PK_DrogueriaMedicamento", x => new { x.DrogueriasDrogueriaId, x.MedicamentoId });
                     table.ForeignKey(
                         name: "FK_DrogueriaMedicamento_Droguerias_DrogueriasDrogueriaId",
                         column: x => x.DrogueriasDrogueriaId,
@@ -80,17 +80,17 @@ namespace Modelo2.Migrations
                         principalColumn: "DrogueriaId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DrogueriaMedicamento_Medicamentos_MedicamentosMedicamentoId",
-                        column: x => x.MedicamentosMedicamentoId,
+                        name: "FK_DrogueriaMedicamento_Medicamentos_MedicamentoId",
+                        column: x => x.MedicamentoId,
                         principalTable: "Medicamentos",
                         principalColumn: "MedicamentoId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DrogueriaMedicamento_MedicamentosMedicamentoId",
+                name: "IX_DrogueriaMedicamento_MedicamentoId",
                 table: "DrogueriaMedicamento",
-                column: "MedicamentosMedicamentoId");
+                column: "MedicamentoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Medicamentos_MonodrogaId",

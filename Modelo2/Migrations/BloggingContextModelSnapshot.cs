@@ -26,12 +26,12 @@ namespace Modelo2.Migrations
                     b.Property<int>("DrogueriasDrogueriaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MedicamentosMedicamentoId")
+                    b.Property<int>("MedicamentoId")
                         .HasColumnType("int");
 
-                    b.HasKey("DrogueriasDrogueriaId", "MedicamentosMedicamentoId");
+                    b.HasKey("DrogueriasDrogueriaId", "MedicamentoId");
 
-                    b.HasIndex("MedicamentosMedicamentoId");
+                    b.HasIndex("MedicamentoId");
 
                     b.ToTable("DrogueriaMedicamento");
                 });
@@ -125,7 +125,7 @@ namespace Modelo2.Migrations
 
                     b.HasOne("Modelo2.Medicamento", null)
                         .WithMany()
-                        .HasForeignKey("MedicamentosMedicamentoId")
+                        .HasForeignKey("MedicamentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

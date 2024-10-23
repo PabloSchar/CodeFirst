@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,7 +17,6 @@ namespace Modelo2
         public int Stock {  get; set; }
         public int StockMinimo { get; set; }
 
-        public int MonodrogaId { get; set; }
         public Monodroga Monodroga { get; set; }
 
         public List<Drogueria> Droguerias { get; set; } = new List<Drogueria> ();

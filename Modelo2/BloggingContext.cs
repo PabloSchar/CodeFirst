@@ -27,5 +27,16 @@ namespace Modelo2
         // special "local" folder for your platform.
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer($"Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=Parcial1_EF;");
+
+        protected override void OnModelCreating(ModelBuilder model)
+        {
+            model.Entity<Monodroga>().HasKey(x => x.MonodrogaId);
+
+            model.Entity<Drogueria>().HasKey(x => x.DrogueriaId);
+
+            model.Entity<Medicamento>().HasKey(x => x.MedicamentoId);
+            model.Entity<Medicamento>().HasOne(x => x.Monodroga);
+            model.Entity<Medicamento>().HasMany(x => x.Droguerias).WithMany();
+        }
     }
 }

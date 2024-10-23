@@ -11,8 +11,8 @@ using Modelo2;
 namespace Modelo2.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20241015234039_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241023005140_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,12 +29,12 @@ namespace Modelo2.Migrations
                     b.Property<int>("DrogueriasDrogueriaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MedicamentosMedicamentoId")
+                    b.Property<int>("MedicamentoId")
                         .HasColumnType("int");
 
-                    b.HasKey("DrogueriasDrogueriaId", "MedicamentosMedicamentoId");
+                    b.HasKey("DrogueriasDrogueriaId", "MedicamentoId");
 
-                    b.HasIndex("MedicamentosMedicamentoId");
+                    b.HasIndex("MedicamentoId");
 
                     b.ToTable("DrogueriaMedicamento");
                 });
@@ -128,7 +128,7 @@ namespace Modelo2.Migrations
 
                     b.HasOne("Modelo2.Medicamento", null)
                         .WithMany()
-                        .HasForeignKey("MedicamentosMedicamentoId")
+                        .HasForeignKey("MedicamentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
