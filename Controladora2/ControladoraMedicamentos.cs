@@ -46,6 +46,7 @@ namespace Controladora2
                 var existeMedicamento = db.Medicamentos.FirstOrDefault(c => c.NombreComercial == medicamento.NombreComercial);
                 if (existeMedicamento != null)
                 {
+                    db.Medicamentos.Update(medicamento);
                     return db.SaveChanges() > 0;
                 }
                 else
